@@ -1,73 +1,45 @@
-# React + TypeScript + Vite
+# ⚡ React Concurrent Search
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A small but focused playground to explore **React concurrent rendering features**, specifically  
+`useTransition` and `Suspense`, through a real-world search UI.
 
-Currently, two official plugins are available:
+This project demonstrates how to keep **user input responsive** while deferring **expensive UI updates**.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+---
 
-## React Compiler
+## 🧪 What This Project Explores
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- Urgent vs non-urgent state updates
+- Non-blocking rendering with `useTransition`
+- Data fetching with `Suspense`
+- Independent loading boundaries
+- Controlled latency and error simulation
+- Clean, feature-based React architecture
 
-## Expanding the ESLint configuration
+> The goal is learning React concurrency — not building a production search engine.
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+---
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+## ✨ Features
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+- ⚡ **Instant input** with deferred results rendering
+- 🔄 Toggle between **Immediate** and **Transition** update modes
+- ⏳ Configurable artificial network delay
+- 🧱 `Suspense`-based loading skeletons
+- ❌ Error handling via Error Boundaries
+- 🧼 Feature-based folder structure
+- 📦 Fake API backed by local JSON data
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+---
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+## 🧠 Why This Exists
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+React concurrency APIs are hard to understand in isolation.
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+This project intentionally:
+
+- Uses a **fake API** to fully control latency
+- Avoids external dependencies that add noise
+- Makes performance differences _visible and measurable_
+
+You should be able to **feel** the difference between blocking and non-blocking updates.
