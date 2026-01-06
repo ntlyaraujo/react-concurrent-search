@@ -1,13 +1,14 @@
-import AppProviders from "./App.providers";
-import "./styles.css";
+import { default as Providers } from "./App.providers";
+import { Search } from "@/features";
+import { Layout } from "@/shared/ui";
 
 const App = () => {
   return (
-    <AppProviders>
-      <div>
-        <h1>React Concurrent Search</h1>
-      </div>
-    </AppProviders>
+    <Providers>
+      <Layout>
+        <Search />
+      </Layout>
+    </Providers>
   );
 };
 
